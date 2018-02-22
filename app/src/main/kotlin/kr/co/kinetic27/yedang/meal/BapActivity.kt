@@ -202,8 +202,9 @@ class BapActivity : BaseActivity() {
 
         internal fun onFinish(result: Long) {
             val activity = activityReference.get()
+            activity!!.mProgressBar!!.visibility = View.GONE
             if (result == (-1).toLong()) {
-                val builder = AlertDialog.Builder(activity!!, R.style.AppCompatErrorAlertDialogStyle)
+                val builder = AlertDialog.Builder(activity, R.style.AppCompatErrorAlertDialogStyle)
                 builder.setTitle(R.string.I_do_not_know_the_error_title)
                 builder.setMessage(R.string.I_do_not_know_the_error_message)
                 builder.setPositiveButton(android.R.string.ok, null)
@@ -265,7 +266,6 @@ class BapActivity : BaseActivity() {
 
         override fun onPostExecute(result: Long?) {
             super.onPostExecute(result)
-
             onFinish(result!!)
         }
 

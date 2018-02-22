@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".BapActivity">
 
+
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +22,25 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="7dp"
+            android:backgroundTint="@color/white"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:max="100"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,19 +48,6 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="kr.co.kinetic27.yedang.BapActivity"
         tools:showIn="@layout/activity_bap">
-
-        <ProgressBar
-            android:id="@+id/progressbar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:backgroundTint="@color/white"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/colorPrimary"
-            android:max="100"
-            tools:visibility="gone" />
-
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/mSwipeRefreshLayout"
             android:layout_width="match_parent"
