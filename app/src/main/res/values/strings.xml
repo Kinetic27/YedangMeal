@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">예당밥</string>
+
+    <string name="loading_title">로딩중</string>
+    <string name="I_do_not_know_the_error_title">알수없는 오류 발생</string>
+    <string name="I_do_not_know_the_error_message">오류가 발생하였습니다..</string>
+    <!-- 메뉴 -->
+    <string name="action_settings">설정</string>
+    <string name="action_refresh">새로 고침</string>
+    <string name="action_calender">날짜 설정</string>
+    <string name="action_today">오늘 날짜</string>
+    <!-- 급식 -->
+    <string name="title_activity_bap">급식</string>
+    <string name="message_activity_bap">급식을 확인합니다.</string>
+    <string name="today_lunch">오늘의 점심</string>
+    <string name="no_data_lunch">점심이 없습니다</string>
+    <string name="no_data_title">정보 없음</string>
+    <string name="no_data_message">정보가 없습니다.</string>
+    <string name="no_network_title">인터넷 연결 안됨</string>
+    <string name="no_network_msg">인터넷 연결이 안돼서 데이터를 다운로드 할 수 없습니다</string>
+    <string name="no_wifi_title">데이터 네트워크 사용 안내</string>
+    <string name="no_wifi_msg">데이터 네트워크를 사용하시겠습니까?</string>
+    <string name="shareBap_title">급식 공유하기</string>
+    <string name="shareBap_message_msg">[ %1$s의 점심 ]
+\n\n%2$s\n\n%3$s Kcal</string>
+    <!-- 설정 -->
+    <string name="title_activity_settings">설정</string>
+    <!-- 급식 자동 업데이트 -->
+    <string name="title_service_autoupdate">자동 업데이트 서비스</string>
+    <string name="title_broadcast_autoupdate">자동 업데이트 리시버</string>
+    <!-- 급식 자동 업데이트 안내 -->
+    <string name="info_autoUpdate_title">급식 자동 업데이트 안내</string>
+    <string name="info_autoUpdate_msg">급식 자동 업데이트는 매주 사용자분께서 급식을 업데이트 해야하는 불편을 덜기위해 만들어졌습니다
+\n 학교에 나오는 목적중 하나인 급식을 누구보다 빨리 확인해 보세요
+\n
+\n- 업데이트 주기 : 자동, 토요일, 일요일을 선택할 수 있습니다 선택한 날짜의 AM 1:00에 업데이트가 이루어집니다
+\n- 업데이트 알림 : 급식 업데이트 중에는 설정과 관계없이 진행중 알림이 나타나며 업데이트 완료후 성공/실패여부를 알림으로 나타내줍니다
+\n- Wi-Fi로만 업데이트 : 말그대로 Wi-Fi에서만 업데이트 합니다 데이터가 부족한 학생을 위한 기능입니다
+\n
+\n
+\n 어플을 사용하시다 강제종료가 발생하면 꼭 "보고(신고)" 버튼을 눌러 신고해 주세요</string>
+    <!-- 급식 자동 업데이트 알림 -->
+    <string name="bapUpdateNotification_title">급식 업데이트중</string>
+    <string name="bapUpdateNotification_ticker">원당고등학교 급식 업데이트중</string>
+    <string name="bapUpdateNotification_notification">급식 업데이트 알림</string>
+    <string name="bapUpdateNotification_msg">급식을 업데이트 하고 있습니다 잠시만 기다려 주세요</string>
+    <string name="bapUpdate_Error_Net_title">네트워크 연결 안됨</string>
+    <string name="bapUpdate_Error_Net_msg">인터넷에 접속할수 없습니다</string>
+    <string name="bapUpdate_Error_get_title">급식 가져오기 실패</string>
+    <string name="bapUpdate_Error_get_msg">급식을 가져오는대 실패했습니다</string>
+    <string name="bapUpdate_Success_title">급식 업데이트 성공</string>
+    <string name="bapUpdate_Success_msg">급식을 성공적으로 업데이트 했습니다 확인하려면 누르세요</string>
+    <!-- 급식 위젯 -->
+    <string name="widget_bap_name">예당고 급식 위젯</string>
+    <string name="widget_no_data">데이터가 없습니다 날짜를 눌러 새로고침 하세요</string>
+    <!-- 오픈소스 라이센스 -->
+    <string name="license_title">라이센스 정보</string>
+    <string name="license_msg">오픈소스 라이센스 정보
+\n- Jericho HTML Parser
+\n (http://jericho.htmlparser.net/docs/index.html)
+\n
+\n- Android Meal Library
+\n (https://bitbucket.org/whdghks913/wondanghighschool) (http://itmir.tistory.com/486) (http://blog.naver.com/rimal/140186322365)
+\n
+\n- Android Support Library
+\n com.android.support:appcompat-v7:23.1.1
+\n com.android.support:design:23.1.1
+\n com.android.support:cardview-v7:23.1.1
+\n com.android.support:recyclerview-v7:23.1.1
+\n com.android.support:support-v4:23.1.1
+\n
+\n- DateTimePicker
+\n com.github.flavienlaurent.datetimepicker:library:0.0.2
+\n (https://github.com/flavienlaurent/datetimepicker)
+\n
+\n- Glide
+\n com.github.bumptech.glide:glide:3.6.1
+\n
+\n- CircleImageView
+\n de.hdodenhof:circleimageview:2.0.0
+\n
+\n- org.apache.http
+\n org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2
+\n
+\n- Icons
+\n calendar.png : http://www.tutsmag.com/wp-content/uploads/2013/06/final-result-calendar.png
+\n rice.png : http://keworganics.com.au/product-category/legumes/
+\n timetable.png : http://iconshow.me/watch-icon
+\n notice.png : https://www.iconfinder.com/icons/339913/help_info_information_notice_icon
+\n other image : https://www.google.com/design/icons/</string>
+    <!-- 수정 내역 -->
+    <string name="changeLog_title">수정 내역</string>
+    <string name="changeLog_msg">v1.0
+    \n- 앱 플레이 스토어 런칭</string>
+    <string name="splash_image">splash Image</string>
+    <string name="lunch">L U N C H</string>
+    <string name="today_kcal">칼로리</string>
+    <string name="lunch_kr">점심</string>
+    <string name="no_data_lunch_kcal">칼로리가 없습니다</string>
+    <string name="sample_day_of_the_week">월요일</string>
+    <string name="sample_calendar">2018년 2월 19일</string>
+    <string name="kcal_message_msg">%1$s Kcal</string>
+    <string name="today">Today</string>
+</resources>
