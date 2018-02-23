@@ -31,12 +31,14 @@ class BapActivity : BaseActivity() {
     private var mAdapter: BapAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var mCalendar: Calendar? = null
+    private var mSecondCal: Calendar? = null
     private val items = ArrayList<BapData>()
 
     private var year: Int = 0
     private var month: Int = 0
     private var day: Int = 0
     private var dayOfWeek: Int = 0
+    private var week: Int = 0
 
     private var mProgressBar: ProgressBar? = null
     private var mProcessTask: BapDownloadTask? = null
@@ -75,6 +77,7 @@ class BapActivity : BaseActivity() {
         month = mCalendar!!.get(Calendar.MONTH)
         day = mCalendar!!.get(Calendar.DAY_OF_MONTH)
         dayOfWeek = mCalendar!!.get(Calendar.DAY_OF_WEEK)
+        week = mCalendar!!.get(Calendar.WEEK_OF_MONTH)
     }
 
     private fun getBapList(isUpdate: Boolean) {
@@ -87,6 +90,7 @@ class BapActivity : BaseActivity() {
 
         // 이번주 월요일 날짜를 가져온다
         mCalendar!!.add(Calendar.DATE, 2 - dayOfWeek)
+        mSecondCal = mCalendar
 
         for (i in 0..4) {
             val year = mCalendar!!.get(Calendar.YEAR)
@@ -110,16 +114,19 @@ class BapActivity : BaseActivity() {
                 return
             }
 
-            if (dayOfWeek in 2..6)
-                items.add(BapData(mData.calender!!, mData.dayOfTheWeek!!, BapTool.replaceString(mData.lunch!!), mData.lunchKcal!!))
-
+            items.add(BapData(mData.calender!!, mData.dayOfTheWeek!!, BapTool.replaceString(mData.lunch!!), mData.lunchKcal!!))
             mCalendar!!.add(Calendar.DATE, 1)
         }
 
         mCalendar!!.set(year, month, day)
         recyclerView!!.adapter.notifyDataSetChanged()
-    }
 
+        if (mAdapter!!.itemCount > 0) {
+            recyclerView!!.scrollToPosition(0)
+            if (dayOfWeek in 2..6 && mAdapter!!.itemCount == 5)
+                recyclerView!!.smoothScrollToPosition(dayOfWeek - 2)
+        }
+    }
 
     private fun setCalenderBap() {
         getCalendarInstance(false)
@@ -131,11 +138,10 @@ class BapActivity : BaseActivity() {
         val datePickerDialog = DatePickerDialog.newInstance({ _, year, month, day ->
             mCalendar!!.set(year, month, day)
             getCalendarInstance(false)
-
             getBapList(true)
         }, year, month, day, false)
 
-        datePickerDialog.setYearRange(2006, 2030)
+        datePickerDialog.setYearRange(2008, year + 2)
         datePickerDialog.setCloseOnSingleTapDay(false)
         datePickerDialog.show(supportFragmentManager, "Tag")
     }
@@ -147,11 +153,7 @@ class BapActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
-
 
         when (id) {
             R.id.action_calender -> {
@@ -213,7 +215,7 @@ class BapActivity : BaseActivity() {
                 return
             }
 
-            activity!!.getBapList(false)
+            activity.getBapList(false)
             if (activity.mSwipeRefreshLayout!!.isRefreshing)
                 activity.mSwipeRefreshLayout!!.isRefreshing = false
         }

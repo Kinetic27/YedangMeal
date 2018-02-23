@@ -101,4 +101,6 @@
     <string name="sample_calendar">2018년 2월 19일</string>
     <string name="kcal_message_msg">%1$s Kcal</string>
     <string name="today">Today</string>
+    <string name="welcome">Welcome!</string>
+    <string name="intro1">예당밥 앱을 사용해주셔서 감사합니다!</string>
 </resources>

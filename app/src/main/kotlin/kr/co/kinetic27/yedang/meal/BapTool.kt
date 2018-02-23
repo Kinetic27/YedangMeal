@@ -98,32 +98,6 @@ object BapTool {
         return mString == null || "" == mString || " " == mString
     }
 
-    /*fun getTodayBap(mContext: Context): TodayBapData {
-        val mCalendar = Calendar.getInstance()
-        val year = mCalendar.get(Calendar.YEAR)
-        val month = mCalendar.get(Calendar.MONTH)
-        val day = mCalendar.get(Calendar.DAY_OF_MONTH)
-
-        val mData = restoreBapData(mContext, year, month, day)
-        val mReturnData = TodayBapData()
-        Log.d("BapTool", "test : ${mData.isBlankDay}")
-        if (!mData.isBlankDay) {
-            mReturnData.title = "점심"
-            mReturnData.info = if (!MealLibrary.isMealCheck(mData.lunch)) mContext.getString(R.string.no_data_lunch) else mData.lunch
-        } else {
-            mReturnData.title = mContext.getString(R.string.no_data_title)
-            mReturnData.info = mContext.getString(R.string.no_data_message)
-        }
-
-        Log.d("BapTool", "test : ${mReturnData.title}")
-        return mReturnData
-    }
-
-    open class TodayBapData {
-        var title: String? = null
-        var info: String? = null
-    }*/
-
     fun replaceString(mString: String): String {
         var mString = mString
         val mTrash = arrayOf("(예당)", "*", ".")
