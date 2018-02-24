@@ -33,7 +33,6 @@ class BapActivity : BaseActivity() {
     private var mAdapter: BapAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var mCalendar: Calendar? = null
-    private var mSecondCal: Calendar? = null
     private val items = ArrayList<BapData>()
 
     private var year: Int = 0
@@ -50,7 +49,6 @@ class BapActivity : BaseActivity() {
     override fun onCreate() {
         application = applicationContext as Application
         showActionBar()
-
         setToolbarTitle("예당고 급식")
         getCalendarInstance(true)
         mProgressBar = findViewById(R.id.progressbar)
@@ -106,7 +104,6 @@ class BapActivity : BaseActivity() {
 
         // 이번주 월요일 날짜를 가져온다
         mCalendar!!.add(Calendar.DATE, 2 - dayOfWeek)
-        mSecondCal = mCalendar
 
         for (i in 0..4) {
             val year = mCalendar!!.get(Calendar.YEAR)

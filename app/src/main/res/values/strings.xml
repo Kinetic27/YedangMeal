@@ -102,7 +102,13 @@
     <string name="kcal_message_msg">%1$s Kcal</string>
     <string name="today">Today</string>
     <string name="welcome">Welcome!</string>
-    <string name="intro1">예당밥 앱을 사용해주셔서 감사합니다!</string>
+    <string name="intro1">예당밥 앱을 소개하기 전에 먼저\n예당밥 앱을 사용해주셔서 감사합니다!</string>
     <string name="another_day">다른 날의 급식</string>
     <string name="action_today_check">오늘 급식을 확인합니다</string>
+    <string name="image_description">이미지</string>
+    <string name="shake">기기를 흔드세요!</string>
+    <string name="intro_shaky">피드백을 보내고 싶다면 기기를 흔들어 주세요!\n피드백은 앱을 완성시켜 줍니다!</string>
+    <string name="intro2">\"예당밥 앱\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
+    <string name="skip">건너뛰기</string>
+    <string name="next">다음</string>
 </resources>
