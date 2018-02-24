@@ -41,7 +41,7 @@
 \n 어플을 사용하시다 강제종료가 발생하면 꼭 "보고(신고)" 버튼을 눌러 신고해 주세요</string>
     <!-- 급식 자동 업데이트 알림 -->
     <string name="bapUpdateNotification_title">급식 업데이트중</string>
-    <string name="bapUpdateNotification_ticker">원당고등학교 급식 업데이트중</string>
+    <string name="bapUpdateNotification_ticker">예당고등학교 급식 업데이트중</string>
     <string name="bapUpdateNotification_notification">급식 업데이트 알림</string>
     <string name="bapUpdateNotification_msg">급식을 업데이트 하고 있습니다 잠시만 기다려 주세요</string>
     <string name="bapUpdate_Error_Net_title">네트워크 연결 안됨</string>
@@ -103,4 +103,6 @@
     <string name="today">Today</string>
     <string name="welcome">Welcome!</string>
     <string name="intro1">예당밥 앱을 사용해주셔서 감사합니다!</string>
+    <string name="another_day">다른 날의 급식</string>
+    <string name="action_today_check">오늘 급식을 확인합니다</string>
 </resources>

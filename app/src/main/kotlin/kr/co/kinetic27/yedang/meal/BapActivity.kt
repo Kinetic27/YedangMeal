@@ -3,7 +3,6 @@ package kr.co.kinetic27.yedang.meal
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.AsyncTask
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
@@ -15,6 +14,8 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import com.fourmob.datetimepicker.date.DatePickerDialog
+import io.github.yavski.fabspeeddial.FabSpeedDial
+import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.lang.ref.WeakReference
 import java.util.*
@@ -27,6 +28,7 @@ import java.util.*
 class BapActivity : BaseActivity() {
     override var viewId: Int = R.layout.activity_bap
     override var toolbarId: Int? = R.id.toolbar
+    private var application: Application? = null
 
     private var mAdapter: BapAdapter? = null
     private var recyclerView: RecyclerView? = null
@@ -46,7 +48,9 @@ class BapActivity : BaseActivity() {
     internal var mSwipeRefreshLayout: SwipeRefreshLayout? = null
 
     override fun onCreate() {
+        application = applicationContext as Application
         showActionBar()
+
         setToolbarTitle("예당고 급식")
         getCalendarInstance(true)
         mProgressBar = findViewById(R.id.progressbar)
@@ -64,10 +68,22 @@ class BapActivity : BaseActivity() {
                 mSwipeRefreshLayout!!.isRefreshing = false
         }
 
-        val mFab = findViewById<FloatingActionButton>(R.id.mFab)
-        mFab.setOnClickListener { setCalenderBap() }
-
         getBapList(true)
+
+        val fabSpeedDial = findViewById<FabSpeedDial>(R.id.fab_menu_list)
+        fabSpeedDial.setMenuListener(object : SimpleMenuListenerAdapter() {
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.fab_today -> {
+                        getCalendarInstance(true)
+                        getBapList(true)
+                    }
+
+                    R.id.fab_calender -> setCalenderBap()
+                }
+                return false
+            }
+        })
     }
 
     private fun getCalendarInstance(getInstance: Boolean) {
@@ -123,7 +139,7 @@ class BapActivity : BaseActivity() {
 
         if (mAdapter!!.itemCount > 0) {
             recyclerView!!.scrollToPosition(0)
-            if (dayOfWeek in 2..6 && mAdapter!!.itemCount == 5)
+            if (dayOfWeek in 2..6)
                 recyclerView!!.smoothScrollToPosition(dayOfWeek - 2)
         }
     }
@@ -155,46 +171,15 @@ class BapActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
-        when (id) {
-            R.id.action_calender -> {
-                setCalenderBap()
-
-                return true
-
-            }
-            R.id.action_refresh -> {
-                val isNetwork = isOnline(this)
-
-                if (isNetwork) {
-                    getCalendarInstance(false)
-
-                    mCalendar!!.add(Calendar.DATE, 2 - dayOfWeek)
-
-                    val mPrefLunchName = BapTool.getBapStringFormat(year, month, day, 1)
-
-                    val mPref = applicationContext.getSharedPreferences("BapData", 0)
-                    val edit = mPref.edit()
-                    edit.remove(mPrefLunchName)
-                    edit.apply()
-                    getBapList(true)
-                } else {
-                    val builder = AlertDialog.Builder(this, R.style.AppCompatErrorAlertDialogStyle)
-                    builder.setTitle(R.string.no_network_title)
-                    builder.setMessage(R.string.no_network_msg)
-                    builder.setPositiveButton(android.R.string.ok, null)
-                    builder.show()
-                }
-
-                return true
-            }
+        return when (id) {
             R.id.action_today -> {
                 getCalendarInstance(true)
                 getBapList(true)
 
-                return true
+                true
 
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
 
     }
@@ -220,12 +205,6 @@ class BapActivity : BaseActivity() {
                 activity.mSwipeRefreshLayout!!.isRefreshing = false
         }
 
-
-        /**
-         * params[0] : year
-         * params[1] : month
-         * params[2] : day
-         */
         override fun doInBackground(vararg params: Int?): Long {
             val activity = activityReference.get()
             publishProgress(5)
@@ -270,7 +249,6 @@ class BapActivity : BaseActivity() {
             super.onPostExecute(result)
             onFinish(result!!)
         }
-
     }
 
     private fun isOnline(mContext: Context): Boolean {

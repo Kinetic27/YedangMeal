@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fab_today"
+        android:icon="@drawable/ic_today"
+        android:title="@string/action_today_check" />
+
+    <item
+        android:id="@+id/fab_calender"
+        android:icon="@drawable/ic_access_time_24dp"
+        android:title="@string/another_day" />
+
+    <item
+        android:id="@+id/fab_setting"
+        android:icon="@drawable/ic_settings_24dp"
+        android:title="@string/action_settings" />
+</menu>
