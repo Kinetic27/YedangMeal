@@ -1,12 +1,11 @@
 package kr.co.kinetic27.yedang.meal
 
 /**
- * Created by Kinetic on 2018-02-22.
- */
+* Created by Kinetic on 2018-02-22.
+*/
 
 import com.linkedin.android.shaky.EmailShakeDelegate
 import com.linkedin.android.shaky.Shaky
-
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 class Application : android.app.Application() {

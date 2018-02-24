@@ -3,18 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="wondang.icehs.kr.whdghks913.wondanghighschool.bap.BapActivity">
     <item
-        android:id="@+id/action_refresh"
-        android:icon="@drawable/ic_update"
-        android:orderInCategory="1"
-        android:title="@string/action_refresh"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_calender"
-        android:icon="@drawable/ic_date_range"
-        android:orderInCategory="2"
-        android:title="@string/action_calender"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_today"
         android:icon="@drawable/ic_today"
         android:orderInCategory="3"
