@@ -19,7 +19,7 @@ class Preference @SuppressLint("CommitPrefEdits") constructor(mContext: Context)
         return mPref!!.getBoolean(key, defValue)
     }
 
-  /*  fun getInt(key: String, defValue: Int): Int {
+    fun getInt(key: String, defValue: Int): Int {
         return mPref!!.getInt(key, defValue)
     }
 
@@ -45,7 +45,9 @@ class Preference @SuppressLint("CommitPrefEdits") constructor(mContext: Context)
 
     fun remove(key: String) {
         mEditor!!.remove(key).commit()
-    }*/init {
+    }
+
+    init {
         mPref = PreferenceManager.getDefaultSharedPreferences(mContext)
         mEditor = mPref!!.edit()
     }

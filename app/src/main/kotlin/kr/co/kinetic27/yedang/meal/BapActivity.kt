@@ -180,13 +180,12 @@ class BapActivity : BaseActivity() {
     }
 
     private class BapDownloadTask(mBap: BapActivity): ProcessTask(mBap) {
+        override fun onPreDownload() {
+        }
 
         private val activityReference: WeakReference<BapActivity> = WeakReference(mBap)
 
         override fun onUpdate(progress: Int) {}
-
-        override fun onPreDownload() {}
-
 
         override fun onFinish(result: Long) {
 

@@ -20,7 +20,7 @@ class BapWidget : AppWidgetProvider() {
 
     override fun onUpdate(mContext: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds)
-                updateAppWidget(mContext, appWidgetManager, appWidgetId, false )
+            updateAppWidget(mContext, appWidgetManager, appWidgetId, false )
 
     }
 
@@ -47,10 +47,10 @@ class BapWidget : AppWidgetProvider() {
 
 
     private class BapDownloadTask(mBap: Context) : ProcessTask(mBap) {
+        override fun onPreDownload() {
+        }
 
         private val activityReference: WeakReference<Context> = WeakReference(mBap)
-
-        override fun onPreDownload() {}
 
         override fun onUpdate(progress: Int) {}
 
@@ -63,7 +63,7 @@ class BapWidget : AppWidgetProvider() {
 
     override fun onAppWidgetOptionsChanged(mContext: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int, newOptions: Bundle) {
         super.onAppWidgetOptionsChanged(mContext, appWidgetManager, appWidgetId, newOptions)
-            updateAppWidget(mContext, appWidgetManager, appWidgetId, false)
+        updateAppWidget(mContext, appWidgetManager, appWidgetId, false)
     }
 
     companion object {
@@ -101,12 +101,15 @@ class BapWidget : AppWidgetProvider() {
                 if (Tools.isOnline(mContext)) {
                     // Only Wifi && Not Wifi
                     if (Preference(mContext).getBoolean("updateWiFi", true)) {
+                        mViews.setViewVisibility(R.id.lunch_kcal, View.GONE)
                         mViews.setTextViewText(R.id.mLunch, mContext.getString(R.string.widget_no_data))
                     } else if (ifNotUpdate) {
                         val mProcessTask = BapDownloadTask(mContext as BapActivity)
                         mProcessTask.execute(year, month, day)
                     }
                 } else {
+
+                    mViews.setViewVisibility(R.id.lunch_kcal, View.GONE)
                     mViews.setTextViewText(R.id.mLunch, mContext.getString(R.string.widget_no_data))
                 }
             } else {
@@ -138,4 +141,3 @@ class BapWidget : AppWidgetProvider() {
         }
     }
 }
-
