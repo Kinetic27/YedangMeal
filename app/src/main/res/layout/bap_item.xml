@@ -93,7 +93,6 @@
                 android:layout_height="match_parent"
                 android:minHeight="250dp"
                 android:orientation="vertical"
-                android:padding="30dp"
                 card_view:cardBackgroundColor="#ffffff"
                 card_view:cardCornerRadius="0dp">
 

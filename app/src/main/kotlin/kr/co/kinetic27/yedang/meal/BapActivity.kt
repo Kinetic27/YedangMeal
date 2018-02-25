@@ -1,8 +1,6 @@
 package kr.co.kinetic27.yedang.meal
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.os.AsyncTask
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
@@ -41,7 +39,7 @@ class BapActivity : BaseActivity() {
     private var dayOfWeek: Int = 0
     private var week: Int = 0
 
-    private var mProgressBar: ProgressBar? = null
+    var mProgressBar: ProgressBar? = null
     private var mProcessTask: BapDownloadTask? = null
 
     internal var mSwipeRefreshLayout: SwipeRefreshLayout? = null
@@ -95,7 +93,7 @@ class BapActivity : BaseActivity() {
     }
 
     private fun getBapList(isUpdate: Boolean) {
-        val isNetwork = isOnline(this)
+        val isNetwork = Tools.isOnline(this)
 
         mAdapter!!.clearData()
         mAdapter!!.notifyDataSetChanged()
@@ -181,10 +179,17 @@ class BapActivity : BaseActivity() {
 
     }
 
-    private class BapDownloadTask internal constructor(mContext: BapActivity) : AsyncTask<Int, Int, Long>() {
-        private val activityReference: WeakReference<BapActivity> = WeakReference(mContext)
+    private class BapDownloadTask(mBap: BapActivity): ProcessTask(mBap) {
 
-        internal fun onFinish(result: Long) {
+        private val activityReference: WeakReference<BapActivity> = WeakReference(mBap)
+
+        override fun onUpdate(progress: Int) {}
+
+        override fun onPreDownload() {}
+
+
+        override fun onFinish(result: Long) {
+
             val activity = activityReference.get()
             activity!!.mProgressBar!!.visibility = View.GONE
             if (result == (-1).toLong()) {
@@ -246,11 +251,6 @@ class BapActivity : BaseActivity() {
             super.onPostExecute(result)
             onFinish(result!!)
         }
-    }
-
-    private fun isOnline(mContext: Context): Boolean {
-        val mManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return mManager.activeNetworkInfo != null && mManager.activeNetworkInfo.isConnectedOrConnecting
     }
 
     override fun attachBaseContext(newBase: Context) = super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))

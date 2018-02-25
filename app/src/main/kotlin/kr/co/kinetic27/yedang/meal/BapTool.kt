@@ -9,7 +9,7 @@ import java.util.*
 
 object BapTool {
 
-    fun getBapStringFormat(year: Int, month: Int, day: Int, type: Int): String {
+    private fun getBapStringFormat(year: Int, month: Int, day: Int, type: Int): String {
         var month = month
         /**
          * Format : year-month-day-TYPE

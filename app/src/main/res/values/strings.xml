@@ -111,4 +111,5 @@
     <string name="intro2">\"예당밥 앱\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
     <string name="skip">건너뛰기</string>
     <string name="next">다음</string>
+    <string name="sample_kcal">800 Kcal</string>
 </resources>

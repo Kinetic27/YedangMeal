@@ -41,6 +41,30 @@
         </activity>
 
         <activity android:name="BapActivity" />
+
+        <receiver
+            android:name=".BapWidget"
+            android:label="@string/widget_bap_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/bap_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".WidgetBroadCast"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIME_CHANGED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
