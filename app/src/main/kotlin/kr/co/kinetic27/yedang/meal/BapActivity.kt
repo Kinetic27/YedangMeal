@@ -180,31 +180,7 @@ class BapActivity : BaseActivity() {
     }
 
     private class BapDownloadTask(mBap: BapActivity): ProcessTask(mBap) {
-        override fun onPreDownload() {
-        }
-
         private val activityReference: WeakReference<BapActivity> = WeakReference(mBap)
-
-        override fun onUpdate(progress: Int) {}
-
-        override fun onFinish(result: Long) {
-
-            val activity = activityReference.get()
-            activity!!.mProgressBar!!.visibility = View.GONE
-            if (result == (-1).toLong()) {
-                val builder = AlertDialog.Builder(activity, R.style.AppCompatErrorAlertDialogStyle)
-                builder.setTitle(R.string.I_do_not_know_the_error_title)
-                builder.setMessage(R.string.I_do_not_know_the_error_message)
-                builder.setPositiveButton(android.R.string.ok, null)
-                builder.show()
-
-                return
-            }
-
-            activity.getBapList(false)
-            if (activity.mSwipeRefreshLayout!!.isRefreshing)
-                activity.mSwipeRefreshLayout!!.isRefreshing = false
-        }
 
         override fun doInBackground(vararg params: Int?): Long {
             val activity = activityReference.get()
@@ -248,7 +224,22 @@ class BapActivity : BaseActivity() {
 
         override fun onPostExecute(result: Long?) {
             super.onPostExecute(result)
-            onFinish(result!!)
+
+            val activity = activityReference.get()
+            activity!!.mProgressBar!!.visibility = View.GONE
+            if (result == (-1).toLong()) {
+                val builder = AlertDialog.Builder(activity, R.style.AppCompatErrorAlertDialogStyle)
+                builder.setTitle(R.string.I_do_not_know_the_error_title)
+                builder.setMessage(R.string.I_do_not_know_the_error_message)
+                builder.setPositiveButton(android.R.string.ok, null)
+                builder.show()
+
+                return
+            }
+
+            activity.getBapList(false)
+            if (activity.mSwipeRefreshLayout!!.isRefreshing)
+                activity.mSwipeRefreshLayout!!.isRefreshing = false
         }
     }
 

@@ -47,14 +47,11 @@ class BapWidget : AppWidgetProvider() {
 
 
     private class BapDownloadTask(mBap: Context) : ProcessTask(mBap) {
-        override fun onPreDownload() {
-        }
 
         private val activityReference: WeakReference<Context> = WeakReference(mBap)
 
-        override fun onUpdate(progress: Int) {}
-
-        override fun onFinish(result: Long) {
+        override fun onPostExecute(result: Long?) {
+            super.onPreExecute()
             val activity = activityReference.get()
             val mIntent = Intent(activity, WidgetBroadCast::class.java)
             activity!!.sendBroadcast(mIntent)

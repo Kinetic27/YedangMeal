@@ -22,8 +22,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
- * Created by Kinetic on 2018-02-24.
- */
+* Created by Kinetic on 2018-02-24.
+*/
 
 class IntroActivity : AppCompatActivity() {
 

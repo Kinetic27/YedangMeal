@@ -34,7 +34,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         onCreate()
     }
-
+/*
     fun hideActionBar() {
         toolbarId?.let {
             val mToolbar = findViewById<Toolbar>(toolbarId!!)
@@ -66,7 +66,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
         }
     }
-
+*/
     fun showActionBar() {
         toolbarId?.let {
             val mToolbar = findViewById<Toolbar>(toolbarId!!)
@@ -96,7 +96,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun disableToggle() {
+   /* fun disableToggle() {
         this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
     //	<- 모양의 뒤로가기 버튼 없애기
@@ -105,12 +105,12 @@ abstract class BaseActivity : AppCompatActivity() {
         this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     //	<- 모양의 뒤로가기 버튼 활성
-
+*/
     fun setToolbarTitle(titleStr: String) {
         this.supportActionBar?.title = titleStr
     }
     // 타이틀 변경
-
+/*
     fun setToolbarTitle(titleId: Int) {
         this.supportActionBar?.title = getString(titleId)
     }
@@ -120,7 +120,7 @@ abstract class BaseActivity : AppCompatActivity() {
         this.supportActionBar?.setHomeAsUpIndicator(iconRes)
     }
     // 툴바 아이콘
-
+*/
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()

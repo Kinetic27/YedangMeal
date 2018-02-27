@@ -10,16 +10,6 @@ import java.lang.ref.WeakReference
 */
 abstract class ProcessTask(mContext: Context) : AsyncTask<Int, Int, Long>() {
     private val activityReference: WeakReference<Context> = WeakReference(mContext)
-    abstract fun onPreDownload()
-
-    abstract fun onUpdate(progress: Int)
-
-    abstract fun onFinish(result: Long)
-
-    override fun onPreExecute() {
-        super.onPreExecute()
-        onPreDownload()
-    }
 
     override fun doInBackground(vararg params: Int?): Long {
             val activity = activityReference.get()
@@ -59,13 +49,5 @@ abstract class ProcessTask(mContext: Context) : AsyncTask<Int, Int, Long>() {
             return 0L
     }
 
-    override fun onProgressUpdate(vararg values: Int?) {
-        onUpdate(values[0]!!)
-    }
 
-    override fun onPostExecute(result: Long?) {
-        super.onPostExecute(result)
-
-        onFinish(result!!)
-    }
 }

@@ -9,7 +9,7 @@ import java.util.*
 
 object BapTool {
 
-    val ACTION_UPDATE = "ACTION_BAP_UPDATE"
+    const val ACTION_UPDATE = "ACTION_BAP_UPDATE"
 
     private fun getBapStringFormat(year: Int, month: Int, day: Int, type: Int): String {
         var month = month
