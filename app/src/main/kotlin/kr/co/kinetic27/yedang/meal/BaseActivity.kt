@@ -100,12 +100,12 @@ abstract class BaseActivity : AppCompatActivity() {
         this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
     //	<- 모양의 뒤로가기 버튼 없애기
-
+*/
     fun enableToggle() {
         this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     //	<- 모양의 뒤로가기 버튼 활성
-*/
+
     fun setToolbarTitle(titleStr: String) {
         this.supportActionBar?.title = titleStr
     }

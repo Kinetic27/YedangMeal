@@ -1,22 +1,23 @@
 package kr.co.kinetic27.yedang.meal
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.LinearLayout
-import android.widget.ProgressBar
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.fourmob.datetimepicker.date.DatePickerDialog
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.lang.ref.WeakReference
 import java.util.*
+
 
 @Suppress("NAME_SHADOWING")
 /**
@@ -39,17 +40,15 @@ class BapActivity : BaseActivity() {
     private var dayOfWeek: Int = 0
     private var week: Int = 0
 
-    var mProgressBar: ProgressBar? = null
     private var mProcessTask: BapDownloadTask? = null
 
     internal var mSwipeRefreshLayout: SwipeRefreshLayout? = null
-
+    private var pDialog: SweetAlertDialog? = null
     override fun onCreate() {
         application = applicationContext as Application
         showActionBar()
         setToolbarTitle("예당고 급식")
         getCalendarInstance(true)
-        mProgressBar = findViewById(R.id.progressbar)
         recyclerView = findViewById(R.id.mRecyclerView)
         recyclerView!!.setHasFixedSize(true)
         recyclerView!!.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
@@ -76,6 +75,9 @@ class BapActivity : BaseActivity() {
                     }
 
                     R.id.fab_calender -> setCalenderBap()
+
+                    R.id.fab_setting ->
+                        startActivity(Intent(this@BapActivity, SettingsActivity::class.java))
                 }
                 return false
             }
@@ -112,15 +114,19 @@ class BapActivity : BaseActivity() {
 
             if (mData.isBlankDay) {
                 if (isUpdate && isNetwork) {
-                    mProgressBar!!.visibility = View.VISIBLE
+                    pDialog = SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE).apply {
+                        progressHelper.barColor = ContextCompat.getColor(this@BapActivity, R.color.colorPrimary)
+                                titleText = "Loading"
+                        setCancelable(false)
+                        show()
+                    }
                     mProcessTask = BapDownloadTask(this)
                     mProcessTask!!.execute(year, month, day)
                 } else {
-                    val builder = AlertDialog.Builder(this, R.style.AppCompatErrorAlertDialogStyle)
-                    builder.setTitle(R.string.no_network_title)
-                    builder.setMessage(R.string.no_network_msg)
-                    builder.setPositiveButton(android.R.string.ok, null)
-                    builder.show()
+                    SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText(resources.getString(R.string.no_network_title))
+                            .setContentText(resources.getString(R.string.no_network_msg))
+                            .show()
                 }
                 return
             }
@@ -170,9 +176,7 @@ class BapActivity : BaseActivity() {
             R.id.action_today -> {
                 getCalendarInstance(true)
                 getBapList(true)
-
                 true
-
             }
             else -> super.onOptionsItemSelected(item)
         }
@@ -184,7 +188,6 @@ class BapActivity : BaseActivity() {
 
         override fun doInBackground(vararg params: Int?): Long {
             val activity = activityReference.get()
-            publishProgress(5)
 
             val countryCode = "goe.go.kr" // 접속 할 교육청 도메인
             val schulCode = "J100005580" // 학교 고유 코드
@@ -208,7 +211,7 @@ class BapActivity : BaseActivity() {
                 val lunchKcal = MealLibrary.getKcalNew(countryCode, schulCode,
                         schulCrseScCode, schulKndScCode, "2", year, month, day)
 
-                activity!!.mProgressBar!!.visibility = View.VISIBLE
+                activity!!.pDialog!!.show()
 
                 BapTool.saveBapData(activity, calendar, lunch, lunchKcal)
             } catch (e: Exception) {
@@ -226,13 +229,12 @@ class BapActivity : BaseActivity() {
             super.onPostExecute(result)
 
             val activity = activityReference.get()
-            activity!!.mProgressBar!!.visibility = View.GONE
+            activity!!.pDialog!!.hide()
             if (result == (-1).toLong()) {
-                val builder = AlertDialog.Builder(activity, R.style.AppCompatErrorAlertDialogStyle)
-                builder.setTitle(R.string.I_do_not_know_the_error_title)
-                builder.setMessage(R.string.I_do_not_know_the_error_message)
-                builder.setPositiveButton(android.R.string.ok, null)
-                builder.show()
+                SweetAlertDialog(activity, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText(activity.resources.getString(R.string.I_do_not_know_the_error_title))
+                        .setContentText(activity.resources.getString(R.string.I_do_not_know_the_error_message))
+                        .show()
 
                 return
             }
@@ -245,4 +247,19 @@ class BapActivity : BaseActivity() {
 
     override fun attachBaseContext(newBase: Context) = super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
 
+    override fun onBackPressed() {
+
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).apply {
+            titleText = "Are you sure?"
+            contentText = "앱을 종료하시겠습니까?"
+            cancelText = "아니요"
+            setCancelClickListener(null)
+            confirmText = "네"
+            setConfirmClickListener { sDialog ->
+                sDialog.dismissWithAnimation()
+                finish()
+            }
+            show()
+        }
+    }
 }

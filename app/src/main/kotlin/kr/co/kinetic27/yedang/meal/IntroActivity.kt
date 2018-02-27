@@ -179,14 +179,14 @@ class IntroActivity : AppCompatActivity() {
 
     private fun requestPermission() {
         val isStoragePermitted = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-
-        if (!isStoragePermitted) {
+        val isReadStatePermitted = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
+        if (!isStoragePermitted || !isReadStatePermitted) {
             SweetAlertDialog(this).apply {
                 titleText = "권한 허용"
-                contentText = "급식 정보를 읽어오기 위해 권한이 필요합니다"
+                contentText = "급식 앱의 원활한 작동을 위해 권한이 필요합니다"
                 setConfirmClickListener {
                     dismiss()
-                    ActivityCompat.requestPermissions(this@IntroActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), 9001)
+                    ActivityCompat.requestPermissions(this@IntroActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE), 9001)
                 }
                 setCancelable(false)
             }.show()

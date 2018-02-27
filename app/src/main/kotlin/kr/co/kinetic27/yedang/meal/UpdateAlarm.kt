@@ -74,12 +74,12 @@ class UpdateAlarm(private val mContext: Context) {
         mAlarm.set(AlarmManager.RTC_WAKEUP, mCalendar.timeInMillis, mPendingIntent)
     }
 
-    /*fun cancel() {
+    fun cancel() {
         val mIntent = Intent(mContext, BroadCast::class.java)
         mIntent.action = BapTool.ACTION_UPDATE
         mPendingIntent = PendingIntent.getBroadcast(mContext, 0, mIntent, 0)
 
         mAlarm.cancel(mPendingIntent)
-    }*/
+    }
 
 }
