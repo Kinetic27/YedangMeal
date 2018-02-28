@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">예당밥</string>
-
+    <string name="school">예당고</string>
     <string name="loading_title">로딩중</string>
     <string name="I_do_not_know_the_error_title">알수없는 오류 발생</string>
     <string name="I_do_not_know_the_error_message">오류가 발생하였습니다..</string>
@@ -119,8 +119,9 @@
     <string name="image_description">이미지</string>
     <string name="shake">기기를 흔드세요!</string>
     <string name="intro_shaky">피드백을 보내고 싶다면 기기를 흔들어 주세요!\n피드백은 앱을 완성시켜 줍니다!</string>
-    <string name="intro2">\"예당밥 앱\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
+    <string name="intro2">\"예당밥\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
     <string name="skip">건너뛰기</string>
     <string name="next">다음</string>
     <string name="sample_kcal">800 Kcal</string>
+    <string name="introduce">예당밥 이란...</string>
 </resources>

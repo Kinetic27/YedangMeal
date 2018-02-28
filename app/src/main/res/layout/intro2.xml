@@ -23,7 +23,7 @@
         android:layout_marginTop="50dp"
         fontPath="fonts/NanumSquareEB.ttf"
         android:textSize="40sp"
-        android:text="@string/welcome"
+        android:text="@string/introduce"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
