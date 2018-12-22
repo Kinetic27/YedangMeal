@@ -6,7 +6,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import kr.co.kinetic27.yedang.meal.R
 import kr.co.kinetic27.yedang.meal.Tools
 import kr.co.kinetic27.yedang.meal.bap.BapActivity

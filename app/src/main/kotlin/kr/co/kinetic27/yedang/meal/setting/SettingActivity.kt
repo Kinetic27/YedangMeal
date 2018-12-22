@@ -3,7 +3,7 @@ package kr.co.kinetic27.yedang.meal.setting
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.preference.*
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import kr.co.kinetic27.yedang.meal.R
 import kr.co.kinetic27.yedang.meal.tools.BaseActivity
 import kr.co.kinetic27.yedang.meal.update.UpdateAlarm
@@ -80,7 +80,7 @@ class SettingsActivity : BaseActivity() {
                 }
 
                 if (!mPref.getBoolean("autoBapUpdate", false) && preference.isEnabled()) {
-                    val updateLife = Integer.parseInt(mPref.getString("updateLife", "0"))
+                    val updateLife = Integer.parseInt(mPref.getString("updateLife", "0")!!)
 
                     val updateAlarm = UpdateAlarm(activity)
                     when (updateLife) {

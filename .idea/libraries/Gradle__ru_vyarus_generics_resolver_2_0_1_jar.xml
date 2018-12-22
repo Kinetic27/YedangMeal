@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ru.vyarus:generics-resolver:2.0.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.vyarus/generics-resolver/2.0.1/2182e67f161ddbe3ff8cb055bb54398354fda3f5/generics-resolver-2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.vyarus/generics-resolver/2.0.1/68f9c3fee47754e3c8d1f30cd46d4447d6255b5d/generics-resolver-2.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

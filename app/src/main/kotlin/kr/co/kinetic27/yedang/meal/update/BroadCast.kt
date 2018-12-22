@@ -23,7 +23,7 @@ class BroadCast : BroadcastReceiver() {
          * 0 : 매주 토요일
          * -1 : 매주 일요일
          */
-        val updateLife = Integer.parseInt(mPref.getString("updateLife", "0"))
+        val updateLife = Integer.parseInt(mPref.getString("updateLife", "0")!!)
 
         val mCalendar = Calendar.getInstance()
         val dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK)
@@ -45,7 +45,7 @@ class BroadCast : BroadcastReceiver() {
                 -1 -> updateAlarm.sundayUpdate()
             }
 
-        } else if (BapTool.ACTION_UPDATE.equals(action)) {
+        } else if (BapTool.ACTION_UPDATE == action) {
             if (haveToUpdate(mContext, mCalendar))
                 mContext.startService(Intent(mContext, UpdateService::class.java))
         }

@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/YedangMeal.iml" filepath="$PROJECT_DIR$/YedangMeal.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data-picker/data-picker.iml" filepath="$PROJECT_DIR$/data-picker/data-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datetimepicker-library/datetimepicker-library.iml" filepath="$PROJECT_DIR$/datetimepicker-library/datetimepicker-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dialog-library/dialog-library.iml" filepath="$PROJECT_DIR$/dialog-library/dialog-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sweet-alert/sweet-alert.iml" filepath="$PROJECT_DIR$/sweet-alert/sweet-alert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sweet-alert-dialog/sweet-alert-dialog.iml" filepath="$PROJECT_DIR$/sweet-alert-dialog/sweet-alert-dialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sweet-dialog/sweet-dialog.iml" filepath="$PROJECT_DIR$/sweet-dialog/sweet-dialog.iml" />
     </modules>
   </component>
 </project>

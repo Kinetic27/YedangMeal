@@ -9,6 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data-picker" />
+            <option value="$PROJECT_DIR$/datetimepicker-library" />
+            <option value="$PROJECT_DIR$/dialog-library" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/sweet-alert" />
+            <option value="$PROJECT_DIR$/sweet-alert-dialog" />
+            <option value="$PROJECT_DIR$/sweet-dialog" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

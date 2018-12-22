@@ -2,8 +2,8 @@ package kr.co.kinetic27.yedang.meal
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.net.wifi.WifiManager
-
 
 /**
 * Created by Kinetic on 2015-12-02.
@@ -11,13 +11,16 @@ import android.net.wifi.WifiManager
 object Tools {
 
     /**
-     * http://stackoverflow.com/questions/1560788/how-to-check-internet-access-on-android-inetaddress-never-timeouts
+     * https://stackoverflow.com/questions/49819923/kotlin-checking-network-status-using-connectivitymanager-returns-null-if-networ
      */
     fun isOnline(mContext: Context): Boolean {
-        val mManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = mManager.activeNetworkInfo
-        return netInfo != null && netInfo.isConnectedOrConnecting
+        val connectivityManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE)
+        return if (connectivityManager is ConnectivityManager) {
+            val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+            networkInfo?.isConnected ?: false
+        } else false
     }
+
 
     fun isWifi(mContext: Context): Boolean {
         val wifiMgr = mContext.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager

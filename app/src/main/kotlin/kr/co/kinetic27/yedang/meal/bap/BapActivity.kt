@@ -2,17 +2,14 @@ package kr.co.kinetic27.yedang.meal.bap
 
 import android.content.Context
 import android.content.Intent
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.LinearLayout
-import com.fourmob.datetimepicker.date.CalendarDay
-import com.fourmob.datetimepicker.date.DatePickerDialog
-import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kr.co.kinetic27.yedang.meal.R
@@ -25,7 +22,7 @@ import kr.co.kinetic27.yedang.meal.tools.ProcessTask
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.lang.ref.WeakReference
 import java.util.*
-
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
 
 @Suppress("NAME_SHADOWING")
 /**
@@ -59,7 +56,7 @@ class BapActivity : BaseActivity() {
         getCalendarInstance(true)
         recyclerView = findViewById(R.id.mRecyclerView)
         recyclerView!!.setHasFixedSize(true)
-        recyclerView!!.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        recyclerView!!.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView!!.adapter = BapAdapter(items)
         mAdapter = recyclerView!!.adapter as BapAdapter?
 
@@ -157,18 +154,30 @@ class BapActivity : BaseActivity() {
     private fun setCalenderBap() {
         getCalendarInstance(false)
 
-        val year = mCalendar!!.get(Calendar.YEAR)
-        val month = mCalendar!!.get(Calendar.MONTH)
-        val day = mCalendar!!.get(Calendar.DAY_OF_MONTH)
+        val nowYear = mCalendar!!.get(Calendar.YEAR)
+        val nowMonth = mCalendar!!.get(Calendar.MONTH)
+        val nowDay = mCalendar!!.get(Calendar.DAY_OF_MONTH)
 
-        DatePickerDialog.newInstance({ _, year, month, day ->
+        /*DatePickerDialog.newInstance({ _, year, month, day ->
             mCalendar!!.set(year, month, day)
             getCalendarInstance(false)
             getBapList(true)
         }, year, month, day, false).apply {
 
-            setDateConstraints(CalendarDay(2008, 1, 1), CalendarDay(year + 2, 1, 1))
+            setDateConstraints(MonthAdapter.CalendarDay(2008, 1, 1), MonthAdapter.CalendarDay(year + 2, 1, 1))
             setCloseOnSingleTapDay(false)
+            show(supportFragmentManager, "Tag")
+        }*/
+
+        DatePickerDialog.newInstance({ _, year, month, day ->
+            mCalendar!!.set(year, month, day)
+            getCalendarInstance(false)
+            getBapList(true)
+        }, nowYear, nowMonth, nowDay).apply {
+            minDate = Calendar.getInstance().apply { set(2008, 1, 1) }
+            maxDate = Calendar.getInstance().apply { set(year + 2, 1, 1) }
+            version = DatePickerDialog.Version.VERSION_2
+            accentColor = ContextCompat.getColor(this@BapActivity, R.color.colorPrimary)
             show(supportFragmentManager, "Tag")
         }
     }
