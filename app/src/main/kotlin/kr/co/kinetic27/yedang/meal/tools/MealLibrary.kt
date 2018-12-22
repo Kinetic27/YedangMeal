@@ -256,29 +256,27 @@ object MealLibrary {
         mSource!!.fullSequentialParse()
         val table = mSource.getAllElements("table")
 
-        for (i in table.indices) {
-            if ((table[i] as Element).getAttributeValue("class") == "tbl_type3") {
-                val tbody = (table[i] as Element).getAllElements("tbody")
-                val tr = (tbody[0] as Element).getAllElements("tr")
-                val title = (tr[2] as Element).getAllElements("th")
+        for (i in table.indices) if ((table[i] as Element).getAttributeValue("class") == "tbl_type3") {
+            val tBody = (table[i] as Element).getAllElements("tbody")
+            val tr = (tBody[0] as Element).getAllElements("tr")
+            val title = (tr[2] as Element).getAllElements("th")
 
-                if ((title[0] as Element).content.toString() == "식재료") {
-                    val tdMeal = (tr[1] as Element).getAllElements("td")
+            if ((title[0] as Element).content.toString() == "식재료") {
+                val tdMeal = (tr[1] as Element).getAllElements("td")
 
-                    for (j in 0..6) {
-                        content[j] = (tdMeal[j] as Element).content.toString()
-                        content[j] = content[j]!!.replace("<br />", "\n")
-                    }
-
-                    break
-                }
-
-                for (index in content.indices) {
-                    content[index] = null
+                (0..6).forEach {
+                    content[it] = (tdMeal[it] as Element).content.toString()
+                    content[it] = content[it]!!.replace("<br />", "\n")
                 }
 
                 break
             }
+
+            for (index in content.indices) {
+                content[index] = null
+            }
+
+            break
         }
 
         return content

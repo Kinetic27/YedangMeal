@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "652825661646",
+    "firebase_url": "https://yedangmeal.firebaseio.com",
+    "project_id": "yedangmeal",
+    "storage_bucket": "yedangmeal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652825661646:android:f1f883559372847b",
+        "android_client_info": {
+          "package_name": "kr.co.kinetic27.yedang.meal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652825661646-g9eednvnbsdlidtd8oh8v9q0poesvgkv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.co.kinetic27.yedang.meal",
+            "certificate_hash": "50a5e55f24be1487f94d6962a95ab8d5bfea2f6b"
+          }
+        },
+        {
+          "client_id": "652825661646-5ilqm04c87ghf5spvf8j2rve3l6b3caq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD08j-v8KRibn4nLVOw0xOGxqb4hNkQ2Do"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652825661646-5ilqm04c87ghf5spvf8j2rve3l6b3caq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

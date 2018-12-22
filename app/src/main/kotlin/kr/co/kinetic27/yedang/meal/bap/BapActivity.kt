@@ -6,9 +6,11 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
+import com.fourmob.datetimepicker.date.CalendarDay
 import com.fourmob.datetimepicker.date.DatePickerDialog
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
 import io.github.yavski.fabspeeddial.FabSpeedDial
@@ -110,8 +112,9 @@ class BapActivity : BaseActivity() {
 
         // 이번주 월요일 날짜를 가져온다
         mCalendar!!.add(Calendar.DATE, 2 - dayOfWeek)
+        Log.d("getData", "${Calendar.DATE}, 2 - $dayOfWeek")
 
-        for (i in 0..4) {
+        (0..4).forEach {
             val year = mCalendar!!.get(Calendar.YEAR)
             val month = mCalendar!!.get(Calendar.MONTH)
             val day = mCalendar!!.get(Calendar.DAY_OF_MONTH)
@@ -122,7 +125,7 @@ class BapActivity : BaseActivity() {
                 if (isUpdate && isNetwork) {
                     pDialog = SweetAlertDialog(this@BapActivity, SweetAlertDialog.PROGRESS_TYPE).apply {
                         progressHelper.barColor = ContextCompat.getColor(this@BapActivity, R.color.colorPrimary)
-                                titleText = "Loading"
+                        titleText = "Loading"
                         setCancelable(false)
                     }
                     mProcessTask = BapDownloadTask(this)
@@ -142,7 +145,7 @@ class BapActivity : BaseActivity() {
         }
 
         mCalendar!!.set(year, month, day)
-        recyclerView!!.adapter.notifyDataSetChanged()
+        recyclerView!!.adapter?.notifyDataSetChanged()
 
         if (mAdapter!!.itemCount > 0) {
             recyclerView!!.scrollToPosition(0)
@@ -158,15 +161,16 @@ class BapActivity : BaseActivity() {
         val month = mCalendar!!.get(Calendar.MONTH)
         val day = mCalendar!!.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog = DatePickerDialog.newInstance({ _, year, month, day ->
+        DatePickerDialog.newInstance({ _, year, month, day ->
             mCalendar!!.set(year, month, day)
             getCalendarInstance(false)
             getBapList(true)
-        }, year, month, day, false)
+        }, year, month, day, false).apply {
 
-        datePickerDialog.setYearRange(2008, year + 2)
-        datePickerDialog.setCloseOnSingleTapDay(false)
-        datePickerDialog.show(supportFragmentManager, "Tag")
+            setDateConstraints(CalendarDay(2008, 1, 1), CalendarDay(year + 2, 1, 1))
+            setCloseOnSingleTapDay(false)
+            show(supportFragmentManager, "Tag")
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
