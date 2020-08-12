@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "652825661646-tvptmoi2a22jl4401v786gtc0ovdadvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.co.kinetic27.yedang.meal",
+            "certificate_hash": "772083992b4d46902fbba4ad56e6a6cca2ad6d04"
+          }
+        },
+        {
           "client_id": "652825661646-5ilqm04c87ghf5spvf8j2rve3l6b3caq.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -49,7 +49,7 @@
             android:title="개발자에게 메일 보내기">
             <intent
                 android:action="android.intent.action.SENDTO"
-                android:data="mailto:ghdtjrwls27@gmail.com" />
+                android:data="mailto:aheui@kakao.com" />
         </Preference>
 
         <Preference

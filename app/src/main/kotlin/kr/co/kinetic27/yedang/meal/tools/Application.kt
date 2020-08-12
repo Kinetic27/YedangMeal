@@ -13,7 +13,7 @@ class Application : android.app.Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Shaky.with(this, EmailShakeDelegate("ghdtjrwls27@gmail.com"))
+        Shaky.with(this, EmailShakeDelegate("aheui@kakao.com"))
 
         CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/NanumSquareR.ttf")

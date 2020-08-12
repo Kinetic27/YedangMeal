@@ -25,13 +25,13 @@ abstract class ProcessTask(mContext: Context) : AsyncTask<Int, Int, Long>() {
             var day = Integer.toString(params[2]!!)
 
             if (month.length <= 1)
-                month = "0" + month
+                month = "0$month"
             if (day.length <= 1)
-                day = "0" + day
+                day = "0$day"
 
             try {
                 val calendar = MealLibrary.getDateNew(countryCode, schulCode,
-                        schulCrseScCode, schulKndScCode, year, month, day)
+                        schulCrseScCode, schulKndScCode , "2", year, month, day)
                 val lunch = MealLibrary.getMealNew(countryCode, schulCode,
                         schulCrseScCode, schulKndScCode, "2", year, month, day)
                 val lunchKcal = MealLibrary.getKcalNew(countryCode, schulCode,

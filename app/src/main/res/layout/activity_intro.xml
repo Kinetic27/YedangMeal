@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="@null"
+        android:background="@null"
         android:text="@string/next"
         android:textColor="@android:color/white"
         tools:ignore="RelativeOverlap" />

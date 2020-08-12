@@ -49,11 +49,14 @@ class BapActivity : BaseActivity() {
 
     internal var mSwipeRefreshLayout: SwipeRefreshLayout? = null
     private var pDialog: SweetAlertDialog? = null
+
     override fun onCreate() {
         application = applicationContext as Application
+
         showActionBar()
         setToolbarTitle(resources.getString(R.string.app_name))
         getCalendarInstance(true)
+
         recyclerView = findViewById(R.id.mRecyclerView)
         recyclerView!!.setHasFixedSize(true)
         recyclerView!!.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -186,6 +189,7 @@ class BapActivity : BaseActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_bap, menu)
         return true
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

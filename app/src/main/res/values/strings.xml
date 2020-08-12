@@ -1,36 +1,36 @@
 <resources>
-    <string name="app_name">예당밥</string>
-    <string name="school">예당고</string>
-    <string name="loading_title">로딩중</string>
-    <string name="I_do_not_know_the_error_title">알수없는 오류 발생</string>
-    <string name="I_do_not_know_the_error_message">오류가 발생하였습니다..</string>
+    <string name="app_name" translatable="false">예당밥</string>
+    <string name="school" translatable="false">예당고</string>
+    <string name="loading_title" translatable="false">로딩중</string>
+    <string name="I_do_not_know_the_error_title" translatable="false">알수없는 오류 발생</string>
+    <string name="I_do_not_know_the_error_message" translatable="false">오류가 발생하였습니다..</string>
     <!-- 메뉴 -->
-    <string name="action_settings">설정</string>
-    <string name="action_refresh">새로 고침</string>
-    <string name="action_calender">날짜 설정</string>
-    <string name="action_today">오늘 날짜</string>
+    <string name="action_settings" translatable="false">설정</string>
+    <string name="action_refresh" translatable="false">새로 고침</string>
+    <string name="action_calender" translatable="false">날짜 설정</string>
+    <string name="action_today" translatable="false">오늘 날짜</string>
     <!-- 급식 -->
-    <string name="title_activity_bap">급식</string>
-    <string name="message_activity_bap">급식을 확인합니다.</string>
-    <string name="today_lunch">오늘의 점심</string>
-    <string name="no_data_lunch">점심이 없습니다</string>
-    <string name="no_data_title">정보 없음</string>
-    <string name="no_data_message">정보가 없습니다.</string>
-    <string name="no_network_title">인터넷 연결 안됨</string>
-    <string name="no_network_msg">인터넷 연결 끊겨 데이터를 다운로드 할 수 없습니다</string>
-    <string name="no_wifi_title">데이터 네트워크 사용 안내</string>
-    <string name="no_wifi_msg">데이터 네트워크를 사용하시겠습니까?</string>
-    <string name="shareBap_title">급식 공유하기</string>
-    <string name="shareBap_message_msg">[ %1$s의 점심 ]
+    <string name="title_activity_bap" translatable="false">급식</string>
+    <string name="message_activity_bap" translatable="false">급식을 확인합니다.</string>
+    <string name="today_lunch" translatable="false">오늘의 점심</string>
+    <string name="no_data_lunch" translatable="false">점심이 없습니다</string>
+    <string name="no_data_title" translatable="false">정보 없음</string>
+    <string name="no_data_message" translatable="false">정보가 없습니다.</string>
+    <string name="no_network_title" translatable="false">인터넷 연결 안됨</string>
+    <string name="no_network_msg" translatable="false">인터넷 연결 끊겨 데이터를 다운로드 할 수 없습니다</string>
+    <string name="no_wifi_title" translatable="false">데이터 네트워크 사용 안내</string>
+    <string name="no_wifi_msg" translatable="false">데이터 네트워크를 사용하시겠습니까?</string>
+    <string name="shareBap_title" translatable="false">급식 공유하기</string>
+    <string name="shareBap_message_msg" translatable="false">[ %1$s의 점심 ]
 \n\n%2$s\n\n%3$s Kcal</string>
     <!-- 설정 -->
-    <string name="title_activity_settings">설정</string>
+    <string name="title_activity_settings" translatable="false">설정</string>
     <!-- 급식 자동 업데이트 -->
-    <string name="title_service_autoupdate">자동 업데이트 서비스</string>
-    <string name="title_broadcast_autoupdate">자동 업데이트 리시버</string>
+    <string name="title_service_autoupdate" translatable="false">자동 업데이트 서비스</string>
+    <string name="title_broadcast_autoupdate" translatable="false">자동 업데이트 리시버</string>
     <!-- 급식 자동 업데이트 안내 -->
-    <string name="info_autoUpdate_title">급식 자동 업데이트 안내</string>
-    <string name="info_autoUpdate_msg">급식 자동 업데이트는 매주 사용자분께서 급식을 업데이트 해야하는 불편을 덜기위해 만들어졌습니다
+    <string name="info_autoUpdate_title" translatable="false">급식 자동 업데이트 안내</string>
+    <string name="info_autoUpdate_msg" translatable="false">급식 자동 업데이트는 매주 사용자분께서 급식을 업데이트 해야하는 불편을 덜기위해 만들어졌습니다
 \n 학교에 나오는 목적중 하나인 급식을 누구보다 빨리 확인해 보세요
 \n
 \n- 업데이트 주기 : 자동, 토요일, 일요일을 선택할 수 있습니다 선택한 날짜의 AM 1:00에 업데이트가 이루어집니다
@@ -40,22 +40,22 @@
 \n
 \n 어플을 사용하시다 강제종료가 발생하면 꼭 "보고(신고)" 버튼을 눌러 신고해 주세요</string>
     <!-- 급식 자동 업데이트 알림 -->
-    <string name="bapUpdateNotification_title">급식 업데이트중</string>
-    <string name="bapUpdateNotification_ticker">예당고등학교 급식 업데이트중</string>
-    <string name="bapUpdateNotification_notification">급식 업데이트 알림</string>
-    <string name="bapUpdateNotification_msg">급식을 업데이트 하고 있습니다 잠시만 기다려 주세요</string>
-    <string name="bapUpdate_Error_Net_title">네트워크 연결 안됨</string>
-    <string name="bapUpdate_Error_Net_msg">인터넷에 접속할수 없습니다</string>
-    <string name="bapUpdate_Error_get_title">급식 가져오기 실패</string>
-    <string name="bapUpdate_Error_get_msg">급식을 가져오는대 실패했습니다</string>
-    <string name="bapUpdate_Success_title">급식 업데이트 성공</string>
-    <string name="bapUpdate_Success_msg">급식을 성공적으로 업데이트 했습니다 확인하려면 누르세요</string>
+    <string name="bapUpdateNotification_title" translatable="false">급식 업데이트중</string>
+    <string name="bapUpdateNotification_ticker" translatable="false">예당고등학교 급식 업데이트중</string>
+    <string name="bapUpdateNotification_notification" translatable="false">급식 업데이트 알림</string>
+    <string name="bapUpdateNotification_msg" translatable="false">급식을 업데이트 하고 있습니다 잠시만 기다려 주세요</string>
+    <string name="bapUpdate_Error_Net_title" translatable="false">네트워크 연결 안됨</string>
+    <string name="bapUpdate_Error_Net_msg" translatable="false">인터넷에 접속할수 없습니다</string>
+    <string name="bapUpdate_Error_get_title" translatable="false">급식 가져오기 실패</string>
+    <string name="bapUpdate_Error_get_msg" translatable="false">급식을 가져오는대 실패했습니다</string>
+    <string name="bapUpdate_Success_title" translatable="false">급식 업데이트 성공</string>
+    <string name="bapUpdate_Success_msg" translatable="false">급식을 성공적으로 업데이트 했습니다 확인하려면 누르세요</string>
     <!-- 급식 위젯 -->
-    <string name="widget_bap_name">예당고 급식 위젯</string>
-    <string name="widget_no_data">데이터가 없습니다 날짜를 눌러 새로고침 하세요</string>
+    <string name="widget_bap_name" translatable="false">예당고 급식 위젯</string>
+    <string name="widget_no_data" translatable="false">데이터가 없습니다 날짜를 눌러 새로고침 하세요</string>
     <!-- 오픈소스 라이센스 -->
-    <string name="license_title">라이센스 정보</string>
-    <string name="license_msg">오픈소스 라이센스 정보
+    <string name="license_title" translatable="false">라이센스 정보</string>
+    <string name="license_msg" translatable="false">오픈소스 라이센스 정보
 \n- Jericho HTML Parser
 \n (http://jericho.htmlparser.net/docs/index.html)
 \n
@@ -98,30 +98,35 @@
 \n com.github.f0ris.sweetalert:library:1.5.1
 \n
 \n- Icons
-\n other image : https://www.google.com/design/icons/</string>
+\n other image : https://www.google.com/design/icons/
+\n
+\n wondanghighschool : https://bitbucket.org/whdghks913</string>
     <!-- 수정 내역 -->
-    <string name="changeLog_title">수정 내역</string>
-    <string name="changeLog_msg">v1.0
-    \n- 앱 플레이 스토어 런칭</string>
-    <string name="splash_image">splash Image</string>
-    <string name="lunch">L U N C H</string>
-    <string name="today_kcal">칼로리</string>
-    <string name="lunch_kr">점심</string>
-    <string name="no_data_lunch_kcal">칼로리가 없습니다</string>
-    <string name="sample_day_of_the_week">월요일</string>
-    <string name="sample_calendar">2018년 2월 19일</string>
-    <string name="kcal_message_msg">%1$s Kcal</string>
-    <string name="today">Today</string>
-    <string name="welcome">Welcome!</string>
-    <string name="intro1">예당밥 앱을 소개하기 전에 먼저\n예당밥 앱을 사용해주셔서 감사합니다!</string>
-    <string name="another_day">다른 날의 급식</string>
-    <string name="action_today_check">오늘 급식을 확인합니다</string>
-    <string name="image_description">이미지</string>
-    <string name="shake">기기를 흔드세요!</string>
-    <string name="intro_shaky">피드백을 보내고 싶다면 기기를 흔들어 주세요!\n피드백은 앱을 완성시켜 줍니다!</string>
-    <string name="intro2">\"예당밥\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
-    <string name="skip">건너뛰기</string>
-    <string name="next">다음</string>
-    <string name="sample_kcal">800 Kcal</string>
-    <string name="introduce">예당밥 이란...</string>
+    <string name="changeLog_title" translatable="false">수정 내역</string>
+    <string name="changeLog_msg" translatable="false">v1.0
+    \n- 앱 플레이 스토어 런칭
+    \n
+    \n v2.0
+    \n- 버그 수정 및 디자인 수정</string>
+    <string name="splash_image" translatable="false">splash Image</string>
+    <string name="lunch" translatable="false">L U N C H</string>
+    <string name="today_kcal" translatable="false">칼로리</string>
+    <string name="lunch_kr" translatable="false">점심</string>
+    <string name="no_data_lunch_kcal" translatable="false">칼로리가 없습니다</string>
+    <string name="sample_day_of_the_week" translatable="false">월요일</string>
+    <string name="sample_calendar" translatable="false">2018년 2월 19일</string>
+    <string name="kcal_message_msg" translatable="false">%1$s Kcal</string>
+    <string name="today" translatable="false">Today</string>
+    <string name="welcome" translatable="false">Welcome!</string>
+    <string name="intro1" translatable="false">예당밥 앱을 소개하기 전에 먼저\n예당밥 앱을 사용해주셔서 감사합니다!</string>
+    <string name="another_day" translatable="false">다른 날의 급식</string>
+    <string name="action_today_check" translatable="false">오늘 급식을 확인합니다</string>
+    <string name="image_description" translatable="false">이미지</string>
+    <string name="shake" translatable="false">기기를 흔드세요!</string>
+    <string name="intro_shaky" translatable="false">피드백을 보내고 싶다면 기기를 흔들어 주세요!\n피드백은 앱을 완성시켜 줍니다!</string>
+    <string name="intro2" translatable="false">\"예당밥\" 어플리케이션은\n예당고 재학생분들을 위해서 만든\n비공식 급식어플 입니다</string>
+    <string name="skip" translatable="false">건너뛰기</string>
+    <string name="next" translatable="false">다음</string>
+    <string name="sample_kcal" translatable="false">800 Kcal</string>
+    <string name="introduce" translatable="false">예당밥 이란...</string>
 </resources>

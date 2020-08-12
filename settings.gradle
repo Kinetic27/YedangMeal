@@ -1,1 +1,1 @@
-include ':app', ':datetimepicker-library', ':data-picker', ':sweet-alert', ':sweet-alert-dialog', ':library', ':sweet-dialog', ':dialog-library'
+include ':app', ':data-picker', ':dialog-library'
