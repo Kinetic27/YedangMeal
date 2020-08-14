@@ -34,7 +34,7 @@ object BapTool {
         for (index in calender.indices) {
             try {
                 val mDate = Calendar.getInstance()
-                mDate.time = mFormat.parse(calender[index])
+                mDate.time = mFormat.parse(calender[index].toString())!!
 
                 val year = mDate.get(Calendar.YEAR)
                 val month = mDate.get(Calendar.MONTH)
@@ -100,11 +100,10 @@ object BapTool {
         return mString == null || "" == mString || " " == mString
     }
 
-    fun replaceString(mString: String): String {
-        var mString = mString
-        val mTrash = arrayOf("(예당)", "*", ".")
-        mTrash.forEach { e -> mString = mString.replace(e, "") }
-        (0..18).forEach { i -> mString = mString.replace("$i", "") }
-        return mString.trim()
-    }
+    fun replaceString(mString: String): String = mString.split("\n").joinToString("\n") { it ->
+        when {
+            it.indexOf("(") != -1 -> it.substring(0, it.indexOf("("))
+            else -> it
+        }
+    }.trim()
 }
