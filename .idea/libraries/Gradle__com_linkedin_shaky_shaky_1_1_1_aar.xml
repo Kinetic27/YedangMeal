@@ -1,14 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.linkedin.shaky:shaky:1.1.1@aar">
     <ANNOTATIONS>
-      <root url="jar://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/8242737d7de8ee8b736a361cf00cfb18/annotations.zip!/" />
+      <root url="jar://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/04fe1bb0166d7d25e181fbf3e4efbcc8/jetified-shaky-1.1.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/8242737d7de8ee8b736a361cf00cfb18/AndroidManifest.xml" />
-      <root url="jar://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/8242737d7de8ee8b736a361cf00cfb18/jars/classes.jar!/" />
-      <root url="file://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/8242737d7de8ee8b736a361cf00cfb18/res" />
+      <root url="file://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/04fe1bb0166d7d25e181fbf3e4efbcc8/jetified-shaky-1.1.1/AndroidManifest.xml" />
+      <root url="jar://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/04fe1bb0166d7d25e181fbf3e4efbcc8/jetified-shaky-1.1.1/jars/classes.jar!/" />
+      <root url="file://E:/AndroidStudio/.gradle/caches/transforms-2/files-2.1/04fe1bb0166d7d25e181fbf3e4efbcc8/jetified-shaky-1.1.1/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/com.linkedin.shaky/shaky/1.1.1/ef1d5c0bde23f0ece4fb00f80b4c8d6df255c9b7/shaky-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/com.linkedin.shaky/shaky/1.1.1/8acbc601068e52cbbd1051d544ed894a5d972659/shaky-1.1.1-sources.jar!/" />
     </SOURCES>

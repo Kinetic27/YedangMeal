@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/org.javaruntype/javaruntype/1.2/d7595d6aa87b56ad207961157d15b2c59f0afb53/javaruntype-1.2.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/org.javaruntype/javaruntype/1.2/6324018a50ec16198a327eb5d7365d7e415c3c85/javaruntype-1.2-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/org.javaruntype/javaruntype/1.2/269ea327288c46afdc4f771c9b4ad071b11ddf59/javaruntype-1.2-sources.jar!/" />
     </SOURCES>

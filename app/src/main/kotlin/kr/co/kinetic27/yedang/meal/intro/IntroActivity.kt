@@ -19,14 +19,14 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kr.co.kinetic27.yedang.meal.R
 import kr.co.kinetic27.yedang.meal.bap.BapActivity
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 /**
-* Created by Kinetic on 2018-02-24.
-*/
+ * Created by Kinetic on 2018-02-24.
+ */
 
 class IntroActivity : AppCompatActivity() {
     private var layouts: IntArray? = null
@@ -60,7 +60,7 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-        sharedPreferences =  getSharedPreferences("first", 0)
+        sharedPreferences = getSharedPreferences("first", 0)
         //풀 스크린
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
@@ -110,9 +110,8 @@ class IntroActivity : AppCompatActivity() {
         }
     }
 
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
-    }
+    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
+
 
     private fun addBottomDots(position: Int) {
 
@@ -120,14 +119,14 @@ class IntroActivity : AppCompatActivity() {
 
         dotsLayout!!.removeAllViews()
 
-        for (i in dots.indices) {
+        dots.indices.forEach { i ->
             dots[i] = TextView(this)
 
             @Suppress("DEPRECATION")
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N)
-                dots[i]!!.text = Html.fromHtml("&#8226", Html.FROM_HTML_MODE_LEGACY)
-            else
-                dots[i]!!.text = Html.fromHtml("&#8226")
+            dots[i]!!.text =  when {
+                android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N -> Html.fromHtml("&#8226", Html.FROM_HTML_MODE_LEGACY)
+                else -> Html.fromHtml("&#8226")
+            }
 
             dots[i]!!.textSize = 35f
             dots[i]!!.setTextColor(ContextCompat.getColor(this, R.color.white))
@@ -142,6 +141,7 @@ class IntroActivity : AppCompatActivity() {
     private fun changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = window
+
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = Color.TRANSPARENT
         }
@@ -155,19 +155,15 @@ class IntroActivity : AppCompatActivity() {
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             layoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val v = layoutInflater!!.inflate(layouts!![position], container, false)
+
             container.addView(v)
             return v
 
         }
 
-        override fun getCount(): Int {
-            return layouts!!.size
-        }
+        override fun getCount(): Int = layouts!!.size
 
-        override fun isViewFromObject(view: View, `object`: Any): Boolean {
-            return view === `object`
-
-        }
+        override fun isViewFromObject(view: View, `object`: Any): Boolean = view === `object`
 
         override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
             val v = `object` as View
@@ -177,14 +173,17 @@ class IntroActivity : AppCompatActivity() {
 
     private fun requestPermission() {
         val isStoragePermitted = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+
         if (!isStoragePermitted) {
             SweetAlertDialog(this).apply {
                 titleText = "권한 허용"
                 contentText = "급식 정보를 읽어오기 위해 권한이 필요합니다"
+
                 setConfirmClickListener {
                     dismiss()
                     ActivityCompat.requestPermissions(this@IntroActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 9001)
                 }
+
                 setCancelable(false)
             }.show()
 
@@ -197,6 +196,6 @@ class IntroActivity : AppCompatActivity() {
     }
 
     private fun setFirst(isFirst: Boolean?) {
-       sharedPreferences!!.edit().apply {   putBoolean("check", isFirst!!) }.apply()
+        sharedPreferences!!.edit().apply { putBoolean("check", isFirst!!) }.apply()
     }
 }

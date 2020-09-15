@@ -6,8 +6,11 @@ package kr.co.kinetic27.yedang.meal.tools
 
 import com.linkedin.android.shaky.EmailShakeDelegate
 import com.linkedin.android.shaky.Shaky
+import io.github.inflationx.calligraphy3.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor
+import io.github.inflationx.viewpump.ViewPump
 import kr.co.kinetic27.yedang.meal.R
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+
 
 class Application : android.app.Application() {
     override fun onCreate() {
@@ -15,10 +18,12 @@ class Application : android.app.Application() {
 
         Shaky.with(this, EmailShakeDelegate("aheui@kakao.com"))
 
-        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/NanumSquareR.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        )
+        ViewPump.init(ViewPump.builder()
+                .addInterceptor(CalligraphyInterceptor(
+                        CalligraphyConfig.Builder()
+                                .setDefaultFontPath("fonts/NanumSquareR.ttf")
+                                .setFontAttrId(R.attr.fontPath)
+                                .build()))
+                .build())
     }
 }

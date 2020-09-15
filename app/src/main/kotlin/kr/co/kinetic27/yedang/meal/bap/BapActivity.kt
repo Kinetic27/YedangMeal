@@ -19,10 +19,10 @@ import kr.co.kinetic27.yedang.meal.tools.Application
 import kr.co.kinetic27.yedang.meal.tools.BapTool
 import kr.co.kinetic27.yedang.meal.tools.BaseActivity
 import kr.co.kinetic27.yedang.meal.tools.ProcessTask
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.lang.ref.WeakReference
 import java.util.*
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 
 @Suppress("NAME_SHADOWING")
 /**
@@ -114,7 +114,7 @@ class BapActivity : BaseActivity() {
         mCalendar!!.add(Calendar.DATE, 2 - dayOfWeek)
         Log.d("getData", "${Calendar.DATE}, 2 - $dayOfWeek")
 
-        (0..4).forEach {
+        (0..4).forEach { _ ->
             val year = mCalendar!!.get(Calendar.YEAR)
             val month = mCalendar!!.get(Calendar.MONTH)
             val day = mCalendar!!.get(Calendar.DAY_OF_MONTH)
@@ -193,9 +193,8 @@ class BapActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
 
-        return when (id) {
+        return when (item.itemId) {
             R.id.action_today -> {
                 getCalendarInstance(true)
                 getBapList(true)
@@ -229,7 +228,7 @@ class BapActivity : BaseActivity() {
         }
     }
 
-    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
 
     override fun onBackPressed() {
 

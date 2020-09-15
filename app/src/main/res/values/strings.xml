@@ -107,7 +107,13 @@
     \n- 앱 플레이 스토어 런칭
     \n
     \n v2.0
-    \n- 버그 수정 및 디자인 수정</string>
+    \n- 버그 수정 및 디자인 수정
+    \n
+    \n v2.1
+    \n- 안드로이드 API 29에서 튕기는 버그 수정
+    \n
+    \n v2.2
+    \n- 중간자 공격을 예방하기 위한 처리</string>
     <string name="splash_image" translatable="false">splash Image</string>
     <string name="lunch" translatable="false">L U N C H</string>
     <string name="today_kcal" translatable="false">칼로리</string>

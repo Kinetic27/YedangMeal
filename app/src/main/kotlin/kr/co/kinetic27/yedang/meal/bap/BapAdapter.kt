@@ -1,11 +1,11 @@
 package kr.co.kinetic27.yedang.meal.bap
 
 import android.content.Intent
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.bap_item.view.*
 import kr.co.kinetic27.yedang.meal.R
 import kr.co.kinetic27.yedang.meal.tools.BapTool
@@ -14,8 +14,8 @@ import java.util.*
 
 
 /**
-* Created by Kinetic on 2018-01-16.
-*/
+ * Created by Kinetic on 2018-01-16.
+ */
 
 internal class BapAdapter(private val mData: ArrayList<BapData>) : RecyclerView.Adapter<BapAdapter.Holder>() {
 
@@ -57,7 +57,11 @@ internal class BapAdapter(private val mData: ArrayList<BapData>) : RecyclerView.
 
             val mCal = GregorianCalendar()
             mCal.time = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).parse(data.mCalender)
-            if (mCal.get(Calendar.YEAR) == year && mCal.get(Calendar.MONTH) + 1 == month && mCal.get(Calendar.DAY_OF_MONTH) == day) today.visibility = View.VISIBLE else today.visibility = View.GONE
+
+            today.visibility = when {
+                mCal.get(Calendar.YEAR) == year && mCal.get(Calendar.MONTH) + 1 == month && mCal.get(Calendar.DAY_OF_MONTH) == day -> View.VISIBLE
+                else -> View.GONE
+            }
         }
 
 

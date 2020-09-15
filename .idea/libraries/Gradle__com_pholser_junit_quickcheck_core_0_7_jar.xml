@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/com.pholser/junit-quickcheck-core/0.7/e2da071d31b3beedf98e83cebbcf4bb995bf683d/junit-quickcheck-core-0.7.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/com.pholser/junit-quickcheck-core/0.7/9c6103d0c9a57ce41377e1b8fabeca6605e29b00/junit-quickcheck-core-0.7-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://E:/AndroidStudio/.gradle/caches/modules-2/files-2.1/com.pholser/junit-quickcheck-core/0.7/c0f292548926284db5dadcb6c16872755311fc0d/junit-quickcheck-core-0.7-sources.jar!/" />
     </SOURCES>

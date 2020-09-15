@@ -25,7 +25,6 @@ import javax.net.ssl.SSLSession;
  * Delete : getDate, getKcal, getMeal, getMonthMeal, getPeople
  */
 public class MealLibrary {
-
     /**
      * Version 8 Update
      *
@@ -35,7 +34,12 @@ public class MealLibrary {
     private static HostnameVerifier hostnameVerifier = new HostnameVerifier() {
         @Override
         public boolean verify(String hostname, SSLSession session) {
-            return true;
+            // Log.d("hostnameMeal", hostname);
+            //String[] hostSplit = hostname.split(".");
+            //boolean data = hostSplit[0].equals("stu") && hostSplit[hostSplit.length - 1].equals("kr");
+
+            //Log.d("hostdata", String.valueOf(data) + " / " + hostSplit[hostSplit.length - 1]);
+            return hostname.equalsIgnoreCase("stu.goe.go.kr"); // 우리 앱은 어짜피 이것만 ㅇㅇ
         }
     };
 
